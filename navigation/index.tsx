@@ -1,35 +1,21 @@
 import * as React from 'react'
-import { View, Text } from 'react-native'
+import { Button, View } from 'react-native'
+import { createDrawerNavigator } from '@react-navigation/drawer'
 import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import TabOneScreen from '../screens/TabOneScreen'
 import Pantalla2 from '../screens/Pantalla2'
 import Pantalla3 from '../screens/Pantalla3'
+import TabOneScreen from '../screens/TabOneScreen'
 
-const Stack = createNativeStackNavigator()
+const Drawer = createDrawerNavigator()
 
-function App() {
+export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Inicio"
-          component={TabOneScreen}
-          options={{ header: () => null }}
-        />
-        <Stack.Screen
-          name="pantalla2"
-          component={Pantalla2}
-          options={{ header: () => null }}
-        />
-        <Stack.Screen
-          name="pantalla3"
-          component={Pantalla3}
-          options={{ header: () => null }}
-        />
-      </Stack.Navigator>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={TabOneScreen} />
+        <Drawer.Screen name="Home2" component={Pantalla2} />
+        <Drawer.Screen name="Notifications" component={Pantalla3} />
+      </Drawer.Navigator>
     </NavigationContainer>
   )
 }
-
-export default App

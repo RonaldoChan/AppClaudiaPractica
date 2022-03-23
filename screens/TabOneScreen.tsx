@@ -12,46 +12,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
 
   return (
     <View style={styles.container}>
-      <Text
-        onPress={() => {
-          navigation.navigate('pantalla2')
-        }}
-      >
-        pantalla 2
-      </Text>
-      <Text
-        onPress={() => {
-          navigation.navigate('pantalla3')
-        }}
-      >
-        pantalla 3
-      </Text>
-
-      <Text style={{}}>Mi primera app</Text>
-      <TextInput
-        style={{ backgroundColor: '#95A5A6', width: 200, height: 45, borderWidth: 1 }}
-        value={text}
-        onChangeText={(textChange) => {
-          setText(textChange)
-        }}
-      />
-      <Button
-        title="enviar"
-        onPress={() => {
-          lista.push(text)
-          console.log(lista)
-          setText('')
-        }}
-      ></Button>
-      {lista.map((item, index) => {
-        return (
-          <View style={{}}>
-            <Text>{item}</Text>
-          </View>
-        )
-      })}
-
-      <View></View>
+      <Text>Hola</Text>
     </View>
   )
 }
