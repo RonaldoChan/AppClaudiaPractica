@@ -124,7 +124,9 @@ const styles = StyleSheet.create({
   },
   textos: {
     fontSize: 15,
-    margin: 20
+    margin: 20,
+    borderColor: '#20232a', //negrita
+    fontWeight: 'bold'
   }
 })
 //type le da el tipo de valor a las prpiedades respectivas name es de tipo string, etc

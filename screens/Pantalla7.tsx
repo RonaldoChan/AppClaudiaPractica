@@ -72,11 +72,9 @@ const styles = StyleSheet.create({
 const Producto = (props) => {
   return
   // <View>
-  //   <Image></Image>
   //   <Text></Text>
   //   <Text></Text>
   //   <TouchableOpacity>
-  //     <Image></Image>
   //   </TouchableOpacity>
   // </View>
 }
