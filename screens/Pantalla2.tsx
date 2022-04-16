@@ -1,4 +1,4 @@
-import { View, Text, Button, Image } from 'react-native'
+import { View, Text, Button, Image, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 
@@ -6,37 +6,36 @@ type Props = {}
 
 const Pantalla2 = (props: Props) => {
   const navigation = useNavigation()
+  function volver() {
+    navigation.navigate('Home')
+  }
+
   const [contador, setcontador] = useState(0)
 
   return (
-    <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+    <View style={styles.contenedor}>
       <View>
         <Image
-          style={{ width: 100, height: 100, marginBottom: 25 }}
+          style={styles.imagen}
           source={{
             uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8AiZqY8ncc5qLW37-t47nahcCwcC_Vcu55Q&usqp=CAU'
           }}
         />
       </View>
-      <Text
-        onPress={() => {
-          navigation.navigate('Inicio')
-        }}
-      >
-        go home
-      </Text>
+      <Text onPress={volver}>go home</Text>
       <Text
         style={{
           borderWidth: 1,
           height: 45,
-          width: 40,
+          width: 100,
           fontSize: 35,
-          textAlign: 'center'
+          textAlign: 'center',
+          marginVertical: 5
         }}
       >
         {contador}
       </Text>
-      <View style={{ flexDirection: 'row' }}>
+      <View style={{ flexDirection: 'row', marginVertical: 10 }}>
         <Button
           title="----------"
           onPress={() => {
@@ -55,5 +54,17 @@ const Pantalla2 = (props: Props) => {
     </View>
   )
 }
+const styles = StyleSheet.create({
+  contenedor: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
+  },
+  imagen: {
+    width: 100,
+    height: 100,
+    marginBottom: 25
+  }
+})
 
 export default Pantalla2
