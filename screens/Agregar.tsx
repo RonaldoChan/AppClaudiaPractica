@@ -71,14 +71,8 @@ const Agregar = (props: Props) => {
           onChange={onChangeValue('desciption')}
           maxLength={100}
         />
-        <Atributo
-          name="Agrega imagen: "
-          placeholder={''}
-          value={''}
-          onChange={onChangeValue('imagen')}
-        />
 
-        <TouchableOpacity style={styles.buttonAgregar}>
+        <TouchableOpacity style={styles.buttonAgregar} onPress={() => {}}>
           <Text style={styles.texto}>Agregar</Text>
         </TouchableOpacity>
       </View>
@@ -102,7 +96,9 @@ const styles = StyleSheet.create({
     margin: 30,
     width: 560,
     height: 450,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    display: 'flex',
+    textAlign: 'left'
   },
   buttonBack: {
     justifyContent: 'flex-start',
@@ -127,6 +123,9 @@ const styles = StyleSheet.create({
     margin: 20,
     borderColor: '#20232a', //negrita
     fontWeight: 'bold'
+    // textDecorationLine: 'underline', //subraya on linea
+    // textDecorationStyle: 'double', // le da estilo al subrayado, en este caso doble.
+    // textDecorationColor: 'black' //le da color al subrayado
   }
 })
 //type le da el tipo de valor a las prpiedades respectivas name es de tipo string, etc
