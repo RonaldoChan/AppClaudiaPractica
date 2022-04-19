@@ -1,17 +1,20 @@
 import { View, Text, StyleSheet, TextInputProps } from 'react-native'
 import React, { FC, useState } from 'react'
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import * as ImagePicker from 'expo-image-picker'
 
 type Props = {}
 
 const Agregar = (props: Props) => {
   const navigation = useNavigation()
+  // // const { params } = useRoute()
+  console.log('props', props)
+
   //para no crear tanto sestados, creo solo uno que me devueva las variablesque voy a cambiar con sus respectivos valores
   const [values, setValues] = useState({
     productName: '',
-    desciption: '',
+    description: '',
     price: '',
     imagen: ''
   })
@@ -67,12 +70,18 @@ const Agregar = (props: Props) => {
         <Atributo
           name="Descripción del producto:"
           placeholder={''}
-          value={values.desciption}
-          onChange={onChangeValue('desciption')}
+          value={values.description}
+          onChange={onChangeValue('description')}
           maxLength={100}
         />
 
-        <TouchableOpacity style={styles.buttonAgregar} onPress={() => {}}>
+        <TouchableOpacity
+          style={styles.buttonAgregar}
+          onPress={() => {
+            navigation.navigate('Tienda', { values })
+            console.log(values)
+          }}
+        >
           <Text style={styles.texto}>Agregar</Text>
         </TouchableOpacity>
       </View>

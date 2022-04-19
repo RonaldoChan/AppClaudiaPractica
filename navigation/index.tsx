@@ -8,7 +8,7 @@ import Pantalla3 from '../screens/Pantalla3'
 import Pantalla4 from '../screens/Pantalla4'
 import Pantalla5 from '../screens/Pantalla5'
 import Pantalla6 from '../screens/Pantalla6'
-import Pantalla7 from '../screens/Pantalla7'
+import PrincipalTienda from '../screens/PrincipalTienda'
 import TabOneScreen from '../screens/TabOneScreen'
 import Ubicacion from '../screens/Ubicacion'
 import Carrito from '../screens/Carrito'
@@ -28,7 +28,7 @@ const DrawerComponent = () => {
       <Drawer.Screen name="Home2" component={Pantalla2} />
       <Drawer.Screen name="Registrarse" component={Pantalla3} />
       <Drawer.Screen name="Calculadora" component={Pantalla6} />
-      <Drawer.Screen name="Tienda" component={Pantalla7} />
+      <Drawer.Screen name="Tienda" component={PrincipalTienda} />
       <Drawer.Screen
         name="Pantalla5"
         component={Pantalla5}

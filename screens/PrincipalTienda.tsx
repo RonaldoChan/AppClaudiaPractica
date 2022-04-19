@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TextInput, Image } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
@@ -12,12 +12,7 @@ const Pantalla7 = (props: Props) => {
     <View>
       <View style={styles.principal}>
         <Text style={styles.title}>Productos</Text>
-        <View
-          style={{
-            justifyContent: 'flex-end',
-            flexDirection: 'row'
-          }}
-        >
+        <View style={styles.header}>
           <TouchableOpacity
             style={styles.boton}
             onPress={() => {
@@ -41,9 +36,9 @@ const Pantalla7 = (props: Props) => {
           flexDirection: 'row'
         }}
       >
-        {[1, 2, 3].map(() => {
+        {/* {valores22.map(() => {
           return <Producto></Producto>
-        })}
+        })} */}
       </View>
     </View>
   )
@@ -52,6 +47,10 @@ const Pantalla7 = (props: Props) => {
 const styles = StyleSheet.create({
   principal: {
     margin: 10,
+    flexDirection: 'row'
+  },
+  header: {
+    justifyContent: 'flex-end',
     flexDirection: 'row'
   },
   title: {
@@ -81,8 +80,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'cyan',
     borderRadius: 20,
-    width: 180,
-    height: 260,
+    width: 200,
+    height: 300,
     justifyContent: 'center',
     margin: 20
   },
@@ -111,11 +110,25 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderColor: '#20232a',
     fontWeight: 'bold'
-  }
+  },
+  buttonSelect: {
+    backgroundColor: 'white',
+    width: 80,
+    height: 35,
+    justifyContent: 'center',
+    borderRadius: 15,
+    marginHorizontal: 57,
+    marginVertical: 15
+  },
+  textButonSelect: { textAlign: 'center', borderColor: '#20232a', fontWeight: 'bold' },
+  textContador: { textAlign: 'center', width: 25, height: 25, borderWidth: 1 },
+  conteinerButon: { flexDirection: 'row', justifyContent: 'center' }
 })
 
 const Producto = (props) => {
   const [contador, setcontador] = useState(0)
+  const [productsSelected, setProductsSelected] = useState([])
+
   return (
     <View style={styles.component}>
       <Image
@@ -128,7 +141,7 @@ const Producto = (props) => {
       <Text style={styles.atributos}>Precio:</Text>
 
       <Text style={styles.atributos}>Descripión:</Text>
-      <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+      <View style={styles.conteinerButon}>
         <Buton
           texto="-"
           change={() => {
@@ -137,9 +150,7 @@ const Producto = (props) => {
             }
           }}
         />
-        <Text style={{ textAlign: 'center', width: 25, height: 25, borderWidth: 1 }}>
-          {contador}
-        </Text>
+        <Text style={styles.contador}>{contador}</Text>
         <Buton
           texto="+"
           change={() => {
@@ -147,6 +158,16 @@ const Producto = (props) => {
           }}
         />
       </View>
+      <TouchableOpacity
+        style={styles.buttonSelect}
+        onPress={() => {
+          if (contador > 0) {
+            productsSelected.push(setProductsSelected)
+          }
+        }}
+      >
+        <Text style={styles.textButonSelect}>Seleccionar</Text>
+      </TouchableOpacity>
     </View>
   )
 }
